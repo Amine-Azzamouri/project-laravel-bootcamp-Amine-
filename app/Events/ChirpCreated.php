@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Chirp;
+use App\Models\Chirpback;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;

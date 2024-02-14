@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chirp;
-use App\Models\ChirpReaction;
+use App\Models\Chirpback;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -61,7 +61,10 @@ class ChirpController extends Controller
             'reaction' => 'required|string|max:255',
         ]);
     
-        $request->user()->chirpReactions()->create($validated);
+        $chirp = $request->user()->chirps()->create($validated);
+    
+        // Ensure you are passing an instance of Chirp to ChirpCreated event
+        event(new ChirpController($chirp));
     
         return redirect(route('chirps.index'));
     }

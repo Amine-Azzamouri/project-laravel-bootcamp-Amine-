@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-
-
-class Chirp extends Model
+class Chirpback extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'message',
+        'reaction',
+        'user_id', // Add this line if 'user_id' is a field in the 'chirp_reactions' table
     ];
 
 
@@ -29,5 +28,4 @@ class Chirp extends Model
         return $this->belongsTo(User::class);
     }
 }
-
 

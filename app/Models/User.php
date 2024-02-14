@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function chirpReactions(): HasMany
     {
-        return $this->hasMany(ChirpReaction::class);
+        return $this->hasMany(Chirpback::class);
     }
 
     
